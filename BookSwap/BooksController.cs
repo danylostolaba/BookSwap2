@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BookSwap.Data;
 using BookSwap.Models;
 
-namespace BookSwap
+namespace BookSwap.Controllers
 {
     public class BooksController : Controller
     {
