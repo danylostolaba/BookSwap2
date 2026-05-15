@@ -22,7 +22,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
-//app.UseStatusCodePagesWithReExecute("/Home/NotFoundPage");
+app.UseStatusCodePagesWithReExecute("/Home/NotFoundPage");
 app.MapGet("/", context =>
 {
     context.Response.Redirect("/Books");
