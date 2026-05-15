@@ -47,3 +47,7 @@ Main page, details page, and admin CRUD pages are included in the repository.
 
 Danylo
 Final pilot project version
+
+## Database
+
+The project uses PostgreSQL with Entity Framework Core migrations.
