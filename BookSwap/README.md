@@ -46,3 +46,4 @@ Main page, details page, and admin CRUD pages are included in the repository.
 ## Author
 
 Danylo
+Final pilot project version
