@@ -83,7 +83,7 @@ namespace BookSwap
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("Id,Title,Author,Genre,Description,Status,ImageUrl,IsFeatured")] Book book)
+            [Bind("Id,Title,Author,Genre,Description,Status,ImageUrl,IsFeatured,Pages,Price,Language,PublishedYear,Rating")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -115,7 +115,7 @@ namespace BookSwap
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Genre,Description,Status,ImageUrl,IsFeatured")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Genre,Description,Status,ImageUrl,IsFeatured,Pages,Price,Language,PublishedYear,Rating")] Book book)
         {
             if (id != book.Id)
             {

@@ -379,3 +379,18 @@ select {
         border-color: #00d0ff;
         box-shadow: 0 0 15px rgba(0,208,255,0.25);
     }
+
+.details-meta {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+    .details-meta p {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.06);
+        padding: 14px 18px;
+        border-radius: 14px;
+        color: #d6d6d6;
+    }
