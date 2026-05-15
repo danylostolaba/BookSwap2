@@ -36,7 +36,7 @@ docker compose up --build
 Open:
 
 ```text
-http://localhost:8080
+http://localhost:5000/
 ```
 
 ## Screenshots
@@ -55,10 +55,13 @@ The project uses PostgreSQL with Entity Framework Core migrations.
 ## Screenshots
 
 ### Home Page
-![Home](screenshots/home.png)
+![Home](screenshots/HomePage1.png)
 
 ### Details Page
-![Details](screenshots/details.png)
+![Details](screenshots/Details.png)
 
 ### Admin Page
-![Admin](screenshots/admin.png)
+![Admin](screenshots/Admin.png)
+
+### 404 Page
+![404](screenshots/404.png)
