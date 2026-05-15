@@ -22,7 +22,7 @@ namespace BookSwap.Models
 
         public string ImageUrl { get; set; }
 
-        public bool IsFeatured { get; set; }
+        public bool IsFeatured { get; set; } // Featured books
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
