@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <h1>Admin Login</h1>
+
+        <form method="post">
+
+            <input type="password"
+                   name="password"
+                   placeholder="Enter password..." />
+
+            <button type="submit" class="btn-custom">
+                Login
+            </button>
+
+        </form>
+
+        @if (ViewBag.Error != null)
+        {
+            <p class="text-danger mt-3">
+                @ViewBag.Error
+            </p>
+        }
+
+    </div>
+
+</div>

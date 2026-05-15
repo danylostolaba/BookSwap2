@@ -20,7 +20,7 @@ namespace BookSwap
         }
         // Search books by title
         // GET: Books
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string genre)
         {
             IQueryable<Book> books = _context.Books;
 
@@ -30,8 +30,20 @@ namespace BookSwap
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                books = books.Where(s => s.Title.Contains(searchString));
+                books = books.Where(b =>
+                    b.Title.Contains(searchString));
             }
+
+            if (!string.IsNullOrEmpty(genre))
+            {
+                books = books.Where(b =>
+                    b.Genre == genre);
+            }
+
+            ViewBag.Genres = await _context.Books
+                .Select(b => b.Genre)
+                .Distinct()
+                .ToListAsync();
 
             return View(await books.ToListAsync());
         }
@@ -41,14 +53,14 @@ namespace BookSwap
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("NotFoundPage", "Home");
             }
 
             var book = await _context.Books
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (book == null)
             {
-                return NotFound();
+                return RedirectToAction("NotFoundPage", "Home");
             }
 
             return View(book);
@@ -57,6 +69,11 @@ namespace BookSwap
         // GET: Books/Create
         public IActionResult Create()
         {
+            if (!IsAdmin())
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
             return View();
         }
 
@@ -82,13 +99,13 @@ namespace BookSwap
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("NotFoundPage", "Home");
             }
 
             var book = await _context.Books.FindAsync(id);
             if (book == null)
             {
-                return NotFound();
+                return RedirectToAction("NotFoundPage", "Home");
             }
             return View(book);
         }
@@ -102,7 +119,7 @@ namespace BookSwap
         {
             if (id != book.Id)
             {
-                return NotFound();
+                return RedirectToAction("NotFoundPage", "Home");
             }
 
             if (ModelState.IsValid)
@@ -116,7 +133,7 @@ namespace BookSwap
                 {
                     if (!BookExists(book.Id))
                     {
-                        return NotFound();
+                        return RedirectToAction("NotFoundPage", "Home");
                     }
                     else
                     {
@@ -133,14 +150,14 @@ namespace BookSwap
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction("NotFoundPage", "Home");
             }
 
             var book = await _context.Books
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (book == null)
             {
-                return NotFound();
+                return RedirectToAction("NotFoundPage", "Home");
             }
 
             return View(book);
@@ -164,6 +181,10 @@ namespace BookSwap
         private bool BookExists(int id)
         {
             return _context.Books.Any(e => e.Id == id);
+        }
+        private bool IsAdmin()
+        {
+            return HttpContext.Session.GetString("IsAdmin") == "true";
         }
 
     }

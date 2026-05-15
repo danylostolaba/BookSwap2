@@ -60,17 +60,7 @@ a {
             color: white;
         }
 
-input[type="text"],
-textarea,
-select {
-    background: #2a2a2a;
-    color: white;
-    border: 1px solid #555;
-    border-radius: 8px;
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 15px;
-}
+
 
 
 .card {
@@ -90,13 +80,9 @@ footer {
     background-color: #111;
 }
 .footer-custom {
-    width: 100%;
-    padding: 20px;
-    margin-top: 40px;
-    background-color: #111;
-    border-top: 1px solid #333;
-    color: #aaa;
-    position: relative;
+    background: linear-gradient(to top, #0b0b0c, #101114);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: #8d8d8d;
 }
 main {
     padding-bottom: 40px;
@@ -120,24 +106,20 @@ main {
     overflow: hidden;
 }
 body {
-    background: #0d0d0d;
+    background: radial-gradient(circle at top, rgba(0,208,255,0.08), transparent 35%), linear-gradient(to bottom, #0b0b0c, #111214);
     color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 80px;
 }
-
 /* HEADER */
 
 .main-header {
-    background: rgba(0,0,0,0.9);
-    border-bottom: 1px solid #222;
+    background: rgba(10,10,12,0.82);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+    backdrop-filter: blur(14px);
     padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(12px);
 }
 
 .logo {
@@ -166,7 +148,7 @@ body {
     text-align: center;
     overflow: hidden;
     border-bottom: 1px solid #1b1b1b;
-    background: linear-gradient( rgba(0,0,0,0.75), rgba(0,0,0,0.9) ), url('https://images.unsplash.com/photo-1526243741027-444d633d7365?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    background: linear-gradient( rgba(7,7,10,0.78), rgba(10,10,14,0.92) ), url('https://images.unsplash.com/photo-1526243741027-444d633d7365?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
 }
 .hero-overlay {
     position: absolute;
@@ -215,17 +197,18 @@ body {
 }
 
 .book-card {
-    background: #171717;
+    background: linear-gradient( to bottom, #1a1d22, #14161a );
     border-radius: 18px;
     overflow: hidden;
     padding: 20px;
-    transition: 0.3s;
-    border: 1px solid #222;
+    transition: 0.35s;
+    border: 1px solid rgba(255,255,255,0.05);
     position: relative;
 }
     .book-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 0 35px rgba(0,208,255,0.18);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.45), 0 0 25px rgba(0,208,255,0.12);
+        border-color: rgba(0,208,255,0.22);
     }
 
 .featured-card {
@@ -327,8 +310,8 @@ body {
     }
 
 input[type="text"] {
-    background: #1a1a1a;
-    border: 1px solid #333;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
     color: white;
     padding: 14px 18px;
     border-radius: 14px;
@@ -352,3 +335,47 @@ input[type="text"] {
 .nav-link-custom:hover {
     color: #00d0ff;
 }
+.login-container {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 420px;
+    background: linear-gradient( to bottom, #1b1d22, #131417 );
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 0 40px rgba(0,0,0,0.45);
+    text-align: center;
+}
+
+    .login-card h1 {
+        margin-bottom: 30px;
+    }
+
+select {
+    background: linear-gradient( to bottom, #16181c, #111214 );
+    border: 1px solid rgba(0,208,255,0.35);
+    color: white;
+    padding: 14px 18px;
+    border-radius: 18px;
+    min-width: 220px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0,208,255,0.08);
+}
+    select option {
+        background: #16181c;
+        color: white;
+    }
+
+    select:focus {
+        outline: none;
+        border-color: #00d0ff;
+        box-shadow: 0 0 15px rgba(0,208,255,0.25);
+    }

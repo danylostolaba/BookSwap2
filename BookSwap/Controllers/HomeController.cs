@@ -17,7 +17,10 @@ namespace BookSwap.Controllers
         {
             return RedirectToAction("Index", "Books");
         }
-
+        public IActionResult NotFoundPage()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return RedirectToAction("Index", "Books");

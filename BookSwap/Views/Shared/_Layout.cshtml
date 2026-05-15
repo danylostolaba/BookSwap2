@@ -18,6 +18,22 @@
             </a>
 
             <nav>
+                @if (Context.Session.GetString("IsAdmin") == "true")
+                {
+                    <a asp-controller="Admin"
+                       asp-action="Logout"
+                       class="nav-link-custom">
+                        Logout
+                    </a>
+                }
+                else
+                {
+                    <a asp-controller="Admin"
+                       asp-action="Login"
+                       class="nav-link-custom">
+                        Admin Login
+                    </a>
+                }
                 <a asp-controller="Books"
                    asp-action="Index"
                    class="nav-link-custom">

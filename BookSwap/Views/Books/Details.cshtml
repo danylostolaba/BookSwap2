@@ -30,15 +30,21 @@
         </div>
 
         <div class="mt-4">
-            <a asp-action="Edit" asp-route-id="@Model.Id"
-               class="btn btn-custom">
-                Edit
-            </a>
+
+            @if (Context.Session.GetString("IsAdmin") == "true")
+            {
+                <a asp-action="Edit"
+                   asp-route-id="@Model.Id"
+                   class="btn btn-custom">
+                    Edit
+                </a>
+            }
 
             <a asp-action="Index"
                class="btn btn-custom">
                 Back
             </a>
+
         </div>
 
     </div>
