@@ -23,6 +23,11 @@ app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
 app.UseStatusCodePagesWithReExecute("/Home/NotFoundPage");
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/Books");
+    return Task.CompletedTask;
+});
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Books}/{action=Index}/{id?}");
