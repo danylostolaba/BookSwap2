@@ -18,7 +18,7 @@ namespace BookSwap
         {
             _context = context;
         }
-
+        // Search books by title
         // GET: Books
         public async Task<IActionResult> Index(string searchString)
         {
