@@ -53,14 +53,14 @@ namespace BookSwap.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("NotFoundPage", "Home");
+                return NotFound();
             }
 
             var book = await _context.Books
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (book == null)
             {
-                return RedirectToAction("NotFoundPage", "Home");
+                return NotFound();
             }
 
             return View(book);
@@ -99,13 +99,13 @@ namespace BookSwap.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("NotFoundPage", "Home");
+                return NotFound();
             }
 
             var book = await _context.Books.FindAsync(id);
             if (book == null)
             {
-                return RedirectToAction("NotFoundPage", "Home");
+                return NotFound();
             }
             return View(book);
         }
@@ -119,7 +119,7 @@ namespace BookSwap.Controllers
         {
             if (id != book.Id)
             {
-                return RedirectToAction("NotFoundPage", "Home");
+                return NotFound();
             }
 
             if (ModelState.IsValid)
@@ -133,7 +133,7 @@ namespace BookSwap.Controllers
                 {
                     if (!BookExists(book.Id))
                     {
-                        return RedirectToAction("NotFoundPage", "Home");
+                        return NotFound();
                     }
                     else
                     {
@@ -150,14 +150,14 @@ namespace BookSwap.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("NotFoundPage", "Home");
+                return NotFound();
             }
 
             var book = await _context.Books
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (book == null)
             {
-                return RedirectToAction("NotFoundPage", "Home");
+                return NotFound();
             }
 
             return View(book);
