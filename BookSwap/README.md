@@ -51,3 +51,14 @@ Final pilot project version
 ## Database
 
 The project uses PostgreSQL with Entity Framework Core migrations.
+
+## Screenshots
+
+### Home Page
+![Home](screenshots/home.png)
+
+### Details Page
+![Details](screenshots/details.png)
+
+### Admin Page
+![Admin](screenshots/admin.png)

@@ -1,50 +1,46 @@
 ﻿@model BookSwap.Models.Book
 
-@{
-    ViewData["Title"] = "Details";
-}
+<div class="details-container">
 
-<h1>📘 Book Details</h1>
-<!-- Details page -->
-<div>
-    <h4>Book</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Author)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Genre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Genre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-    </dl>
+    <div class="details-image-section">
+
+        <img src="@Model.ImageUrl" class="details-book-image" />
+
+    </div>
+
+    <div class="details-content">
+
+        @if (Model.IsFeatured)
+        {
+            <span class="featured-badge">FEATURED</span>
+        }
+
+        <h1>@Model.Title</h1>
+
+        <h3>@Model.Author</h3>
+
+        <p class="details-genre">@Model.Genre</p>
+
+        <p class="details-description">
+            @Model.Description
+        </p>
+
+        <div class="details-status">
+            Status: @Model.Status
+        </div>
+
+        <div class="mt-4">
+            <a asp-action="Edit" asp-route-id="@Model.Id"
+               class="btn btn-custom">
+                Edit
+            </a>
+
+            <a asp-action="Index"
+               class="btn btn-custom">
+                Back
+            </a>
+        </div>
+
+    </div>
+
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
-<hr />
-<p>BookSwap Details Page</p>

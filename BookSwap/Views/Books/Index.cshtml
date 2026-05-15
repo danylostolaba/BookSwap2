@@ -3,13 +3,34 @@
 @{
     ViewData["Title"] = "BookSwap";
 }
+<section class="hero-section">
 
-<form asp-action="Index" method="get" class="mb-4 d-flex gap-2">
-    <input type="text" name="searchString" placeholder="Search books..." />
-    <input type="submit" value="Search" class="btn btn-custom" />
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1>Swap Stories.<br />Discover Worlds.</h1>
+
+        <p>
+            A dark digital library where forgotten pages find new hands.
+        </p>
+    </div>
+
+</section>
+<form asp-action="Index"
+      method="get"
+      class="search-form">
+
+    <input type="text"
+           name="searchString"
+           placeholder="Search books..." />
+
+    <input type="submit"
+           value="Search"
+           class="btn btn-custom" />
+
 </form>
 
-<h1>📚 BookSwap Library</h1>
+<h1>📄 Library</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-custom">+ Add New Book</a>

@@ -22,8 +22,11 @@ namespace BookSwap
         // GET: Books
         public async Task<IActionResult> Index(string searchString)
         {
-            var books = from b in _context.Books
-                        select b;
+            IQueryable<Book> books = _context.Books;
+
+            books = books
+                .OrderByDescending(b => b.IsFeatured)
+                .ThenByDescending(b => b.Id);
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -62,7 +65,8 @@ namespace BookSwap
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Author,Genre,Description,Status")] Book book)
+        public async Task<IActionResult> Create(
+            [Bind("Id,Title,Author,Genre,Description,Status,ImageUrl,IsFeatured")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +98,7 @@ namespace BookSwap
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Genre,Description,Status")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Author,Genre,Description,Status,ImageUrl,IsFeatured")] Book book)
         {
             if (id != book.Id)
             {

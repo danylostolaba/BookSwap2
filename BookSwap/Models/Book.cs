@@ -7,23 +7,27 @@ namespace BookSwap.Models
         public int Id { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        [StringLength(100)]
+        public string Title { get; set; } = "";
 
         [Required]
-        public string Author { get; set; }
+        [StringLength(100)]
+        public string Author { get; set; } = "";
 
-        public string Genre { get; set; }
+        [Required]
+        public string? Genre { get; set; }
 
-        [MinLength(10)]
-        [MaxLength(300)]
-        public string Description { get; set; }
+        [Required]
+        [StringLength(500, MinimumLength = 20)]
+        public string? Description { get; set; }
 
-        public string Status { get; set; } = "Available";
+        [Required]
+        public string? Status { get; set; }
 
-        public string ImageUrl { get; set; }
+        [Required]
+        [Url]
+        public string? ImageUrl { get; set; }
 
-        public bool IsFeatured { get; set; } // Featured books
-
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public bool IsFeatured { get; set; } = false;
     }
 }
