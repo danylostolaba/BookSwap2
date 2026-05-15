@@ -181,3 +181,6 @@ main {
         grid-template-columns: 1fr;
     }
 }
+.book-card {
+    overflow: hidden;
+}
