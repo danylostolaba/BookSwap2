@@ -176,3 +176,8 @@ main {
 .book-card h2 {
     color: #00d4ff;
 }
+@media(max-width: 768px) {
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+}
