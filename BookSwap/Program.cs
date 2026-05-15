@@ -17,13 +17,12 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStatusCodePagesWithReExecute("/Home/NotFoundPage");
 app.UseStaticFiles();
 
 app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
-
+app.UseStatusCodePagesWithReExecute("/Home/NotFoundPage");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Books}/{action=Index}/{id?}");
