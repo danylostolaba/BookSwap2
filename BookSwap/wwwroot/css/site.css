@@ -173,3 +173,6 @@ main {
     padding: 5px 10px;
     border-radius: 8px;
 }
+.book-card h2 {
+    color: #00d4ff;
+}
